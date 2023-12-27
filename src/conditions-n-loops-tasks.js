@@ -153,9 +153,8 @@ function convertToRomanNumerals(num) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  const res = +numberStr;
   const number = {
-    '-': 'minus ',
+    '-': 'minus',
     0: 'zero',
     1: 'one',
     2: 'two',
@@ -169,8 +168,13 @@ function convertNumberToString(numberStr) {
     '.': 'point',
     ',': 'point',
   };
-}
 
+  let res = '';
+  for (let i = 0; i <= numberStr.length - 1; i += 1) {
+    res += `${number[numberStr[i]]} `;
+  }
+  return res;
+}
 /**
  * Determines whether a string is a palindrome.
  * In this task, the use of methods of the String and Array classes is not allowed.
