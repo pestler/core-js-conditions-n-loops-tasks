@@ -153,25 +153,76 @@ function convertToRomanNumerals(num) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  const number = {
-    '-': 'minus',
-    0: 'zero',
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-    '.': 'point',
-    ',': 'point',
-  };
-
   let res = '';
-  for (let i = 0; i <= numberStr.length - 1; i += 1) {
-    res += `${number[numberStr[i]]} `;
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const l = i === numberStr.length - 1;
+    switch (numberStr[i]) {
+      case '-':
+        res += 'minus ';
+        break;
+      case '0':
+        if (l) {
+          res += 'zero';
+        } else res += 'zero ';
+        break;
+      case '1':
+        if (l) {
+          res += 'one';
+        } else res += 'one ';
+        break;
+      case '2':
+        if (l) {
+          res += 'two';
+        } else res += 'two ';
+        break;
+      case '3':
+        if (l) {
+          res += 'three';
+        } else res += 'three ';
+        break;
+      case '4':
+        if (l) {
+          res += 'four';
+        } else res += 'four ';
+        break;
+      case '5':
+        if (l) {
+          res += 'five';
+        } else res += 'five ';
+        break;
+      case '6':
+        if (l) {
+          res += 'six';
+        } else res += 'six ';
+        break;
+      case '7':
+        if (l) {
+          res += 'seven';
+        } else res += 'seven ';
+        break;
+      case '8':
+        if (l) {
+          res += 'eight';
+        } else res += 'eight ';
+        break;
+      case '9':
+        if (l) {
+          res += 'nine';
+        } else res += 'nine ';
+        break;
+      case '.':
+        if (l) {
+          res += 'point';
+        } else res += 'point ';
+        break;
+      case ',':
+        if (l) {
+          res += 'point';
+        } else res += 'point ';
+        break;
+      default:
+        break;
+    }
   }
   return res;
 }
@@ -187,8 +238,12 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let result;
+  for (let i = 0; i < Math.floor(str.length / 2); i += 1) {
+    result = str[i] === str[str.length - i - 1];
+  }
+  return result;
 }
 
 /**
